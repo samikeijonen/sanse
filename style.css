@@ -897,6 +897,48 @@ a:active {
 	
 }
 
+/* Social Links. */
+.menu-social {
+	padding-bottom: 1.5em;
+}
+.menu-social ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.menu-social li {
+    display: inline-block;
+	padding-left: 0.24331547469em;
+	padding-right: 0.24331547469em;
+	margin-bottom: 0.62429507697em;
+}
+.menu-social li:first-child {
+	padding-left: 0;
+}
+.menu-social a {
+	background-color: #ffcd00;
+	border-bottom: none;
+	border-radius: 4px;
+	color: #000;
+	display: block;
+	width: 3em;
+	height: 3em;
+}
+.menu-social a:hover,
+.menu-social a:focus,
+.menu-social a:active {
+	background-color: #fff;
+	color: #000;
+}
+.menu-social a:focus {
+	outline-offset: -4px;
+}
+.menu-social .icon {
+	width: 2em;
+	height: 2em;
+	top: 0.5em;
+}
+
 /* Pagination and post navigation. */
 .pagination,
 .post-navigation,
@@ -907,7 +949,7 @@ a:active {
 .post-navigation:before,
 .post-navigation .nav-previous ~ .nav-next:before,
 .single .entry-header:after,
-.page .entry-header:after,
+body.page .entry-header:after,
 .page-header:after {
 	border-bottom: 2px solid #ffcd00;
 	content: '';
@@ -920,8 +962,9 @@ a:active {
 	margin-top: 1.5em;
 }
 .single .entry-header:after,
-.page .entry-header:after {
+body.page .entry-header:after {
 	margin-top: 1.5em;
+	margin-bottom: 1.802em;
 }
 .pagination .page-numbers {
 	padding: 0.30794614765em;
@@ -1096,6 +1139,7 @@ a:active {
 .entry-header,
 .entry-footer,
 .entry-meta,
+.comments-area,
 .comment-respond,
 .site-info {
 	margin-left: auto;
@@ -1115,6 +1159,8 @@ a:active {
 }
 .entry-content,
 .entry-summary,
+.entry-footer,
+.comments-area,
 .comment-respond,
 .entry-inner .entry-header,
 .entry-inner .entry-meta {
@@ -1214,13 +1260,15 @@ a:active {
 	display: inline;
 }
 
-.posted-on {
+.posted-on,
+.byline {
 	font-family: "Archivo Narrow", sans-serif;
 	font-size: 0.88888888em;
 	font-style: italic;
 	letter-spacing: 1px;
 }
-.entry-date {
+.entry-date,
+.byline .url {
 	font-style: normal;
 	text-transform: uppercase;
 }
@@ -1246,13 +1294,139 @@ a:active {
 /*--------------------------------------------------------------
 ## Comments
 --------------------------------------------------------------*/
-.comment-content a {
-	word-wrap: break-word;
-}
 
 .bypostauthor {
-	display: block;
 }
+
+.comments-area {
+	padding-top: 3em;
+	padding-bottom: 1.5em;
+}
+
+.comment-list + .comment-respond,
+.comment-navigation + .comment-respond {
+	padding-top: 1.5em;
+}
+
+.comments-title,
+.comment-reply-title {
+	font-weight: 400;
+	letter-spacing: 2px;
+	line-height: 1.25;
+	margin-bottom: 0;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+.comments-title {
+	margin-bottom: 1.266em;
+}
+
+.comment-list {
+	list-style: none;
+	margin: 0;
+}
+
+.comment-list article,
+.comment-list .pingback,
+.comment-list .trackback {
+	padding: 1.802em 0;
+}
+
+.comment-list .children {
+	list-style: none;
+	margin: 0;
+}
+
+.comment-author {
+	margin-bottom: 0.25em;
+}
+
+.comment-author .avatar {
+	border-radius: 4px;
+	float: left;
+	height: 60px;
+	margin-top: -4px;
+	margin-right: 1em;
+	position: relative;
+	width: 60px;
+}
+
+.comment-author .says {
+	display: none;
+}
+
+.comment-metadata,
+.pingback .edit-link {
+	font-size: 0.88888888em;
+	text-transform: uppercase;
+}
+
+.comment-metadata {
+	margin-bottom: 1.602em;
+}
+
+.comment-metadata .edit-link,
+.pingback .edit-link {
+	display: inline-block;
+	margin-top: 0;
+}
+
+.comment-metadata .edit-link:before,
+.pingback .edit-link:before {
+	content: "\002f";
+	display: inline-block;
+	opacity: 0.7;
+	padding: 0 0.538461538em;
+}
+
+ol.comment-list ol.children {
+	padding-left: 3%;
+}
+
+.comment-reply-link {
+	display: inline-block;
+	font-family: "Archivo Narrow", sans-serif;
+	font-size: 0.888888888888em;
+	font-weight: 700;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+}
+.comment-reply-link  .icon {
+	margin-left: 0.24331547469em;
+}
+
+.comment-form {
+	padding-top: 1.75em;
+}
+
+.comment-form label {
+	display: block;
+	font-size: 14px;
+	font-size: 0.875rem;
+	letter-spacing: 0.076923077em;
+	text-transform: uppercase;
+}
+
+.comment-list .comment-form {
+	padding-bottom: 1.75em;
+}
+
+.comment-notes,
+.comment-awaiting-moderation,
+.logged-in-as,
+.form-allowed-tags,
+.no-comments {
+	font-style: italic;
+	margin-bottom: 1.75em;
+	text-align: center;
+}
+
+.comment-navigation + .no-comments {
+	border-top: 0;
+	padding-top: 0;
+}
+
 
 /*--------------------------------------------------------------
 # Infinite scroll

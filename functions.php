@@ -53,6 +53,7 @@ function sanse_setup() {
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
 		'primary' => esc_html__( 'Primary', 'sanse' ),
+		'social'  => esc_html__( 'Social Links', 'sanse' ),
 	) );
 
 	/*
@@ -176,13 +177,71 @@ add_action( 'wp_enqueue_scripts', 'sanse_scripts' );
 function sanse_excerpt_more() {
 
 	/* Translators: The %s is the post title shown to screen readers. */
-	$text = sprintf( esc_attr__( 'Read more %s', 'some' ), '<span class="screen-reader-text">' . get_the_title() ) .  '</span>';
+	$text = sprintf( esc_attr__( 'Read more %s', 'sanse' ), '<span class="screen-reader-text">' . get_the_title() ) .  '</span>';
 	$more = sprintf( '&hellip; <span class="icon-wrapper icon-wrapper-round"></span><a href="%s" class="more-link">%s %s</a>', esc_url( get_permalink() ), $text, sanse_get_svg( array( 'icon' => 'next' ) ) );
 
 	return $more;
 
 }
 add_filter( 'excerpt_more', 'sanse_excerpt_more' );
+
+/**
+ * Display SVG icons in social navigation.
+ *
+ * @since 1.0.0
+ *
+ * @param string  $item_output The menu item output.
+ * @param WP_Post $item        Menu item object.
+ * @param int     $depth       Depth of the menu.
+ * @param array   $args        wp_nav_menu() arguments.
+ * @return string Menu item with possible description.
+ */
+function sanse_nav_social_icons( $item_output, $item, $depth, $args ) {
+	
+	// Supported social icons.
+	$social_icons = apply_filters( 'sanse_nav_social_icons', array(
+		'codepen.io'      => 'codepen',
+		'digg.com'        => 'digg',
+		'dribbble.com'    => 'dribbble',
+		'dropbox.com'     => 'dropbox',
+		'facebook.com'    => 'facebook',
+		'flickr.com'      => 'flickr',
+		'foursquare.com'  => 'foursquare',
+		'plus.google.com' => 'googleplus',
+		'github.com'      => 'github',
+		'instagram.com'   => 'instagram',
+		'linkedin.com'    => 'linkedin-alt',
+		'mailto:'         => 'mail',
+		'pinterest.com'   => 'pinterest-alt',
+		'getpocket.com'   => 'pocket',
+		'polldaddy.com'   => 'polldaddy',
+		'reddit.com'      => 'reddit',
+		'skype.com'       => 'skype',
+		'skype:'          => 'skype',
+		'soundcloud.com'  => 'cloud',
+		'spotify.com'     => 'spotify',
+		'stumbleupon.com' => 'stumbleupon',
+		'tumblr.com'      => 'tumblr',
+		'twitch.tv'       => 'twitch',
+		'twitter.com'     => 'twitter',
+		'vimeo.com'       => 'vimeo',
+		'wordpress.org'   => 'wordpress',
+		'wordpress.com'   => 'wordpress',
+		'youtube.com'     => 'youtube',
+	) );
+	
+	// Change SVG icon inside social links menu if there is supported URL.
+	if ( 'social' == $args->theme_location ) {
+		foreach ( $social_icons as $attr => $value ) {
+			if ( false !== strpos( $item_output, $attr ) ) {
+				$item_output = str_replace( $args->link_after, '</span>' . sanse_get_svg( array( 'icon' => esc_attr( $value ) ) ), $item_output );
+			}
+		}
+	}
+
+	return $item_output;
+}
+add_filter( 'walker_nav_menu_start_el', 'sanse_nav_social_icons', 10, 4 );
 
 /**
  * Implement the Custom Header feature.
