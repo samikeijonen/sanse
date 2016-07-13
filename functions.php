@@ -68,11 +68,6 @@ function sanse_setup() {
 		'caption',
 	) );
 
-	// Set up the WordPress core custom background feature.
-	add_theme_support( 'custom-background', apply_filters( 'sanse_custom_background_args', array(
-		'default-color' => 'f0f0f0',
-		'default-image' => '',
-	) ) );
 }
 add_action( 'after_setup_theme', 'sanse_setup' );
 
@@ -156,10 +151,7 @@ function sanse_scripts() {
 	wp_enqueue_style( 'sanse-style', get_stylesheet_uri() );
 	
 	// Add theme scripts.
-	wp_enqueue_script( 'sanse-navigation', get_template_directory_uri() . '/assets/js/navigation.js', array(), '20151215', true );
-	
-	// Add skip link script.
-	wp_enqueue_script( 'sanse-skip-link-focus-fix', get_template_directory_uri() . '/assets/js/skip-link-focus-fix.js', array(), '20151215', true );
+	wp_enqueue_script( 'sanse-navigation', get_template_directory_uri() . '/assets/js/navigation' . SANSE_SUFFIX . '.js', array(), '20160715', true );
 	
 	// Add comments script.
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
@@ -244,19 +236,46 @@ function sanse_nav_social_icons( $item_output, $item, $depth, $args ) {
 add_filter( 'walker_nav_menu_start_el', 'sanse_nav_social_icons', 10, 4 );
 
 /**
+ * Adds custom classes to the array of body classes.
+ *
+ * @param array $classes Classes for the body element.
+ * @return array
+ */
+function sanse_body_classes( $classes ) {
+	
+	// Adds a class of group-blog to blogs with more than 1 published author.
+	if ( is_multi_author() ) {
+		$classes[] = 'group-blog';
+	}
+
+	// Adds a class of hfeed to non-singular pages.
+	if ( ! is_singular() ) {
+		$classes[] = 'hfeed';
+	}
+	
+	// Add the '.custom-header-image' class if the user is using a custom header image.
+	if ( get_header_image() ) {
+		$classes[] = 'custom-header-image';
+	}
+
+	return $classes;
+}
+add_filter( 'body_class', 'sanse_body_classes' );
+
+/**
  * Implement the Custom Header feature.
  */
 require get_template_directory() . '/inc/custom-header.php';
 
 /**
+ * Implement the Custom Background feature.
+ */
+require get_template_directory() . '/inc/custom-background.php';
+
+/**
  * Custom template tags for this theme.
  */
 require get_template_directory() . '/inc/template-tags.php';
-
-/**
- * Custom functions that act independently of the theme templates.
- */
-require get_template_directory() . '/inc/extras.php';
 
 /**
  * Customizer additions.
