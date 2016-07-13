@@ -1,0 +1,13 @@
+assets/bower_components/bourbon/
+assets/bower_components/neat/
+node_modules/
+build/
+.idea/
+.sass-cache
+*.sublime-project
+.htaccess
+compass_app_log.txt
+*.log
+.DS_Store
+.AppleDouble
+.LSOverride
