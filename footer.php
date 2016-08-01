@@ -14,6 +14,9 @@
 	</div><!-- #content -->
 
 	<footer id="colophon" class="site-footer" role="contentinfo">
+	
+		<?php get_sidebar( 'footer' ); // Loads the sidebar-footer.php template. ?>
+	
 		<div class="site-info">
 			
 			<?php
