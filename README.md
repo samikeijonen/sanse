@@ -27,6 +27,7 @@ All other resources and theme elements are licensed under the [GNU GPL](http://w
 * Add Footer Widgets area.
 * SVG images are now loaded in the footer via `wp_footer` hook.
 * Add editor styles.
+* Switch to system fonts like in WordPress Core.
 
 ### Version 1.0.0 - July 13, 2016
 
