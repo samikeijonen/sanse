@@ -64,49 +64,65 @@ msgstr ""
 msgid "Tags:"
 msgstr ""
 
-#: footer.php:23
+#: footer.php:26
 msgid "https://wordpress.org/"
 msgstr ""
 
-#: footer.php:23
+#: footer.php:26
 msgid "Proudly powered by %s"
 msgstr ""
 
-#: footer.php:25
+#: footer.php:28
 msgid "Theme: %1$s by %2$s."
 msgstr ""
 
-#: functions.php:55
+#: functions.php:46
 msgid "Primary"
 msgstr ""
 
-#: functions.php:56
+#: functions.php:47
 msgid "Social Links"
 msgstr ""
 
-#: functions.php:100
+#: functions.php:104
 msgctxt "Droid Serif font: on or off"
 msgid "on"
 msgstr ""
 
-#: functions.php:105
+#: functions.php:109
 msgctxt "Archivo Narrow font: on or off"
 msgid "on"
 msgstr ""
 
-#: functions.php:126
-msgid "Sidebar"
+#: functions.php:131
+msgid "Footer widget area 1"
 msgstr ""
 
-#: functions.php:128
-msgid "Add widgets here."
+#: functions.php:133
+msgid "Add widgets here for footer widget area 1."
 msgstr ""
 
-#: functions.php:172
+#: functions.php:141
+msgid "Footer widget area 2"
+msgstr ""
+
+#: functions.php:143
+msgid "Add widgets here for footer widget area 2."
+msgstr ""
+
+#: functions.php:151
+msgid "Footer widget area 3"
+msgstr ""
+
+#: functions.php:153
+msgid "Add widgets here for footer widget area 3."
+msgstr ""
+
+#: functions.php:282
 msgid "Read more %s"
 msgstr ""
 
-#: header.php:30
+#: header.php:25
 msgid "Skip to content"
 msgstr ""
 
