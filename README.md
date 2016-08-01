@@ -22,6 +22,12 @@ All other resources and theme elements are licensed under the [GNU GPL](http://w
 
 ## Changelog
 
+### Version 1.1.0 - August 1, 2016
+
+* Add Footer Widgets area.
+* SVG images are now loader in the Footer via wp_footer hook.
+* Add editor styles.
+
 ### Version 1.0.0 - July 13, 2016
 
 * Everything's new!
