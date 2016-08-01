@@ -70,7 +70,7 @@ function sanse_setup() {
 	 * This theme styles the visual editor to resemble the theme style,
 	 * specifically font, colors, icons, and column width.
 	 */
-	add_editor_style( array( 'assets/css/editor-style.css', sanse_fonts_url() ) );
+	add_editor_style( array( 'assets/css/editor-style.css' ) );
 
 }
 add_action( 'after_setup_theme', 'sanse_setup' );
@@ -86,39 +86,6 @@ function sanse_content_width() {
 	$GLOBALS['content_width'] = apply_filters( 'sanse_content_width', 640 );
 }
 add_action( 'after_setup_theme', 'sanse_content_width', 0 );
-
-/**
- * Register Google fonts.
- *
- * @since 1.0.0
- *
- * @return string Google fonts URL for the theme.
- */
-function sanse_fonts_url() {
-
-	$fonts_url = '';
-	$fonts     = array();
-	$subsets   = 'latin,latin-ext';
-
-	/* translators: If there are characters in your language that are not supported by Droid Serif, translate this to 'off'. Do not translate into your own language. */
-	if ( 'off' !== esc_attr_x( 'on', 'Droid Serif font: on or off', 'sanse' ) ) {
-		$fonts[] = 'Droid Serif:400,700,400italic,700italic';
-	}
-	
-	/* translators: If there are characters in your language that are not supported by Archivo Narrow, translate this to 'off'. Do not translate into your own language. */
-	if ( 'off' !== esc_attr_x( 'on', 'Archivo Narrow font: on or off', 'sanse' ) ) {
-		$fonts[] = 'Archivo Narrow:400,700,400italic,700italic';
-	}
-
-	if ( $fonts ) {
-		$fonts_url = add_query_arg( array(
-			'family' => urlencode( implode( '|', $fonts ) ),
-			'subset' => urlencode( $subsets ),
-		), 'https://fonts.googleapis.com/css' );
-	}
-
-	return $fonts_url;
-}
 
 /**
  * Register widget area.
@@ -178,9 +145,6 @@ function sanse_scripts() {
 	
 	// Get '.min' suffix.
 	$suffix = sanse_get_min_suffix();
-	
-	// Add custom fonts, used in the main stylesheet.
-	wp_enqueue_style( 'sanse-fonts', sanse_fonts_url(), array(), null );
 	
 	// Add parent theme styles if using child theme.
 	if ( is_child_theme() ) {

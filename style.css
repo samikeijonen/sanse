@@ -3,7 +3,7 @@ Theme Name: Sanse
 Theme URI: https://foxland.fi/downloads/sanse/
 Author: Sami Keijonen
 Author URI: https://foxland.fi/
-Description: Let your content shine with Sanse theme.
+Description: Sanse is a super fast theme where your content is shining brighter than ever.
 Version: 1.1.0
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -270,7 +270,7 @@ input,
 select,
 textarea {
 	color: #404040;
-	font-family: "Droid Serif", serif;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 	font-size: 1em;
 	line-height: 1.5;
 	word-wrap: break-word;
@@ -285,7 +285,6 @@ h6,
 .site-title {
 	clear: both;
 	color: #000;
-	font-family: "Archivo Narrow", sans-serif;
 	font-weight: 700;
 	line-height: 1.2;
 	letter-spacing: 0.05em;
@@ -296,7 +295,6 @@ h6,
 	text-transform: uppercase;
 }
 .site-title {
-	font-family: "Droid Serif", serif;
 	margin-bottom: 0.30794614765em;
 }
 .site-title a {
@@ -583,7 +581,6 @@ input[type="reset"],
 input[type="submit"],
 a.button,
 label {
-	font-family: "Archivo Narrow", sans-serif;
 	font-weight: 700;
 	letter-spacing: 1px;	
 }
@@ -750,7 +747,6 @@ a:active {
 --------------------------------------------------------------*/
 
 .main-navigation {
-	font-family: "Archivo Narrow", sans-serif;
 	position: relative;
 	text-transform: uppercase;
 }
@@ -1001,7 +997,6 @@ body.page .entry-header:after {
 
 .post-navigation .meta-nav {
 	display: block;
-	font-family: "Archivo Narrow", sans-serif;
 	font-size: 0.8888888888em;
 	font-weight: 700;
 	letter-spacing: 1px;
@@ -1324,7 +1319,6 @@ body.page .entry-header:after {
 
 .posted-on,
 .byline {
-	font-family: "Archivo Narrow", sans-serif;
 	font-size: 0.88888888em;
 	font-style: italic;
 	letter-spacing: 1px;
@@ -1447,7 +1441,6 @@ ol.comment-list ol.children {
 
 .comment-reply-link {
 	display: inline-block;
-	font-family: "Archivo Narrow", sans-serif;
 	font-size: 0.888888888888em;
 	font-weight: 700;
 	letter-spacing: 1px;
