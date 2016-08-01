@@ -84,41 +84,31 @@ msgstr ""
 msgid "Social Links"
 msgstr ""
 
-#: functions.php:104
-msgctxt "Droid Serif font: on or off"
-msgid "on"
-msgstr ""
-
-#: functions.php:109
-msgctxt "Archivo Narrow font: on or off"
-msgid "on"
-msgstr ""
-
-#: functions.php:131
+#: functions.php:98
 msgid "Footer widget area 1"
 msgstr ""
 
-#: functions.php:133
+#: functions.php:100
 msgid "Add widgets here for footer widget area 1."
 msgstr ""
 
-#: functions.php:141
+#: functions.php:108
 msgid "Footer widget area 2"
 msgstr ""
 
-#: functions.php:143
+#: functions.php:110
 msgid "Add widgets here for footer widget area 2."
 msgstr ""
 
-#: functions.php:151
+#: functions.php:118
 msgid "Footer widget area 3"
 msgstr ""
 
-#: functions.php:153
+#: functions.php:120
 msgid "Add widgets here for footer widget area 3."
 msgstr ""
 
-#: functions.php:282
+#: functions.php:246
 msgid "Read more %s"
 msgstr ""
 
