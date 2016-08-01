@@ -4,7 +4,7 @@ Theme URI: https://foxland.fi/downloads/sanse/
 Author: Sami Keijonen
 Author URI: https://foxland.fi/
 Description: Let your content shine with Sanse theme.
-Version: 1.0.0
+Version: 1.1.0
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: sanse
@@ -23,30 +23,31 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 /*--------------------------------------------------------------
 >>> TABLE OF CONTENTS:
 ----------------------------------------------------------------
-# Normalize
-# Typography
-# Elements
-# Forms
-# Navigation
-	## Links
-	## Menus
-# Accessibility
-# Alignments
-# Clearings
-# Widgets
-# Layout
-# Content
-	## Posts and pages
-	## Comments
-# Infinite scroll
-# Media
-	## Captions
-	## Galleries
+1 Normalize
+2 Typography
+3 Elements
+4 Forms
+5 Navigation
+	5.1 Links
+	5.2 Menus
+6 Accessibility
+7 Alignments
+8 Clearings
+9 Widgets
+10 Layout
+11 Content
+	11.1 Posts and pages
+	11.2 Comments
+12 Media
+	12.1 SVG
+	12.2 Captions
+	12.3 Galleries
 --------------------------------------------------------------*/
 
 /*--------------------------------------------------------------
-# Normalize
+1 Normalize
 --------------------------------------------------------------*/
+
 html {
 	font-family: sans-serif;
 	-webkit-text-size-adjust: 100%;
@@ -258,9 +259,11 @@ th {
 	padding: 0;
 }
 
+
 /*--------------------------------------------------------------
-# Typography
+2 Typography
 --------------------------------------------------------------*/
+
 body,
 button,
 input,
@@ -332,7 +335,8 @@ h4,
 .entry-inner .entry-title {
 	font-size: 1.266em;
 }
-h5 {
+h5,
+.footer-widgets-wrapper .widget-title {
 	font-size: 1.125em;
 }
 h6 {
@@ -366,7 +370,8 @@ h6 {
 	.entry-inner .entry-title {
 		font-size: 1.424em;
 	}
-	h5 {
+	h5,
+	.footer-widgets-wrapper .widget-title {
 		font-size: 1.266em;
 	}
 	h6 {
@@ -433,7 +438,7 @@ big {
 
 
 /*--------------------------------------------------------------
-# Elements
+3 Elements
 --------------------------------------------------------------*/
 
 html {
@@ -554,7 +559,7 @@ td {
 
 
 /*--------------------------------------------------------------
-# Forms
+4 Forms
 --------------------------------------------------------------*/
 
 button,
@@ -619,6 +624,9 @@ a.button:focus {
 	border: 2px solid #000;
 	margin: 1em auto 0;
 }
+.no-header-text .menu-toggle {
+	margin-top: 0;
+}
 
 input[type="text"],
 input[type="email"],
@@ -642,7 +650,11 @@ select {
 	transition: all 0.25s ease-in-out;
 	width: 100%;
 }
-input[name="post_password"] {
+input[name="post_password"],
+.search-field {
+	margin-bottom: 0.62429507697em;
+}
+.error404 .search-form {
 	margin-bottom: 1.5em;
 }
 
@@ -669,10 +681,10 @@ select:focus {
 
 
 /*--------------------------------------------------------------
-# Navigation
+5 Navigation
 --------------------------------------------------------------*/
 /*--------------------------------------------------------------
-## Links
+5.1 Links
 --------------------------------------------------------------*/
 
 a,
@@ -681,8 +693,11 @@ a:visited {
 	transition: all 0.25s ease-in-out;
 	text-decoration: none;
 }
-.site-info a {
+.site-info a,
+.footer-widgets-wrapper a {
 	color: #ccc;
+}
+.site-info a {
 	font-style: italic;
 }
 
@@ -698,6 +713,7 @@ a:visited {
 	border-bottom-color: #f0f0f0;
 }
 .entry-content .gallery-icon a,
+.footer-widgets-wrapper a,
 .entry-content .mejs-horizontal-volume-slider {
 	border-bottom: none;
 }
@@ -709,7 +725,10 @@ a:active {
 }
 .site-info a:hover,
 .site-info a:focus,
-.site-info a:active {
+.site-info a:active,
+.footer-widgets-wrapper a:hover,
+.footer-widgets-wrapper a:focus,
+.footer-widgets-wrapper a:active {
 	color: #fff;
 }
 
@@ -727,7 +746,7 @@ a:active {
 }
 
 /*--------------------------------------------------------------
-## Menus
+5.2 Menus
 --------------------------------------------------------------*/
 
 .main-navigation {
@@ -815,6 +834,9 @@ a:active {
 		padding-top: 0.88888888888em;
 		margin: 0;
 		text-align: center;
+	}
+	.no-header-text .main-navigation {
+		padding-top: 0;
 	}
 	
 	.main-navigation li {
@@ -904,12 +926,11 @@ a:active {
 .menu-social ul {
     list-style: none;
     padding: 0;
-    margin: 0;
+    margin: 0 0 -0.49327018427em 0;
 }
 .menu-social li {
     display: inline-block;
-	padding-left: 0.24331547469em;
-	padding-right: 0.24331547469em;
+	padding-left: 0.49327018427em;
 	margin-bottom: 0.62429507697em;
 }
 .menu-social li:first-child {
@@ -950,7 +971,8 @@ a:active {
 .post-navigation .nav-previous ~ .nav-next:before,
 .single .entry-header:after,
 body.page .entry-header:after,
-.page-header:after {
+.page-header:after,
+.footer-widgets-wrapper:after {
 	border-bottom: 2px solid #ffcd00;
 	content: '';
 	display: block;
@@ -965,6 +987,10 @@ body.page .entry-header:after,
 body.page .entry-header:after {
 	margin-top: 1.5em;
 	margin-bottom: 1.802em;
+}
+.footer-widgets-wrapper:after {
+	margin-top: 1.5em;
+	margin-bottom: 3em;
 }
 .pagination .page-numbers {
 	padding: 0.30794614765em;
@@ -1021,8 +1047,9 @@ body.page .entry-header:after {
 
 }
 
+
 /*--------------------------------------------------------------
-# Accessibility
+6 Accessibility
 --------------------------------------------------------------*/
 
 /* Text meant only for screen readers. */
@@ -1056,8 +1083,9 @@ body.page .entry-header:after {
 	outline: 0;
 }
 
+
 /*--------------------------------------------------------------
-# Alignments
+7 Alignments
 --------------------------------------------------------------*/
 
 .alignleft {
@@ -1081,8 +1109,9 @@ body.page .entry-header:after {
 	margin-right: auto;
 }
 
+
 /*--------------------------------------------------------------
-# Clearings
+8 Clearings
 --------------------------------------------------------------*/
 
 .clear:before,
@@ -1111,12 +1140,26 @@ body.page .entry-header:after {
 	clear: both;
 }
 
+
 /*--------------------------------------------------------------
-# Widgets
+9 Widgets
 --------------------------------------------------------------*/
 
 .widget {
 	margin: 0 0 1.5em;
+}
+
+.footer-widgets-wrapper ul,
+.footer-widgets-wrapper ol {
+	list-style-type: none;
+	margin-left: 0;
+}
+.footer-widgets-wrapper li {
+	padding-bottom: 0.19224926395em;
+}
+
+.footer-widgets-wrapper .widget-title {
+	color: #ffcd00;
 }
 
 /* Make sure select elements fit in widgets. */
@@ -1124,8 +1167,9 @@ body.page .entry-header:after {
 	max-width: 100%;
 }
 
+
 /*--------------------------------------------------------------
-# Layout
+10 Layout
 --------------------------------------------------------------*/
 
 .wrapper,
@@ -1160,7 +1204,8 @@ body.page .entry-header:after {
 .comments-area,
 .comment-respond,
 .entry-inner .entry-header,
-.entry-inner .entry-meta {
+.entry-inner .entry-meta,
+.footer-widgets-1 .footer-widgets-wrapper .wrapper {
 	max-width: 620px;
 }
 
@@ -1237,13 +1282,26 @@ body.page .entry-header:after {
 		width: 50%;
 	}
 	
+	.footer-widgets-wrapper .widget-area {
+		padding-left: 1.5em;
+	}
+	
+	.footer-widgets-2 .widget-area {
+		width: 50%;
+	}
+	.footer-widgets-3 .widget-area {
+		width: 33.3333333333%;
+	}
+	
 }
 
+
 /*--------------------------------------------------------------
-# Content
+11 Content
 --------------------------------------------------------------*/
+
 /*--------------------------------------------------------------
-## Posts and pages
+11.1 Posts and pages
 --------------------------------------------------------------*/
 
 .sticky {
@@ -1296,7 +1354,7 @@ body.page .entry-header:after {
 }
 
 /*--------------------------------------------------------------
-## Comments
+11.2 Comments
 --------------------------------------------------------------*/
 
 .bypostauthor {
@@ -1350,7 +1408,7 @@ body.page .entry-header:after {
 	border-radius: 4px;
 	float: left;
 	height: 60px;
-	margin-top: -4px;
+	margin-top: -0.151900653em;
 	margin-right: 1em;
 	position: relative;
 	width: 60px;
@@ -1363,7 +1421,6 @@ body.page .entry-header:after {
 .comment-metadata,
 .pingback .edit-link {
 	font-size: 0.88888888em;
-	text-transform: uppercase;
 }
 
 .comment-metadata {
@@ -1433,21 +1490,7 @@ ol.comment-list ol.children {
 
 
 /*--------------------------------------------------------------
-# Infinite scroll
---------------------------------------------------------------*/
-/* Globally hidden elements when Infinite Scroll is supported and in use. */
-.infinite-scroll .posts-navigation, /* Older / Newer Posts Navigation (always hidden) */
-.infinite-scroll.neverending .site-footer { /* Theme Footer (when set to scrolling) */
-	display: none;
-}
-
-/* When Infinite Scroll has reached its end we need to re-display elements that were hidden (via .neverending) before. */
-.infinity-end.neverending .site-footer {
-	display: block;
-}
-
-/*--------------------------------------------------------------
-# Media
+12 Media
 --------------------------------------------------------------*/
 
 .page-content .wp-smiley,
@@ -1467,7 +1510,7 @@ object {
 }
 
 /*--------------------------------------------------------------
-## SVG
+12.1 SVG
 --------------------------------------------------------------*/
 
 .icon {
@@ -1481,10 +1524,11 @@ object {
 }
 
 /*--------------------------------------------------------------
-## Captions
+12.2 Captions
 --------------------------------------------------------------*/
+
 .wp-caption {
-	margin-bottom: 1.5em;
+	margin-bottom: 1em;
 	max-width: 100%;
 }
 
@@ -1495,16 +1539,18 @@ object {
 }
 
 .wp-caption .wp-caption-text {
-	margin: 0.8075em 0;
+	margin: 0.8888888em 0;
 }
 
 .wp-caption-text {
+	font-style: italic;
 	text-align: center;
 }
 
 /*--------------------------------------------------------------
-## Galleries
+12.3 Galleries
 --------------------------------------------------------------*/
+
 .gallery {
 	margin-bottom: 1.5em;
 }
