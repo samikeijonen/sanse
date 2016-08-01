@@ -6,15 +6,6 @@
  *
  * @package Sanse
  */
- 
-/**
- * The suffix to use for scripts.
- */
-if ( ( defined( 'SCRIPT_DEBUG' ) && true === SCRIPT_DEBUG ) ) {
-	define( 'SANSE_SUFFIX', '' );
-} else {
-	define( 'SANSE_SUFFIX', '.min' );
-}
 
 /**
  * Sets up theme defaults and registers support for various WordPress features.
@@ -55,6 +46,13 @@ function sanse_setup() {
 		'primary' => esc_html__( 'Primary', 'sanse' ),
 		'social'  => esc_html__( 'Social Links', 'sanse' ),
 	) );
+	
+	/*
+	 * Add support for selective refresh..
+	 *
+	 * @link https://developer.wordpress.org/themes/advanced-topics/customizer-api/#widgets-opting-in-to-selective-refresh
+	 */
+	add_theme_support( 'customize-selective-refresh-widgets' );
 
 	/*
 	 * Switch default core markup for search form, comment form, and comments
@@ -67,6 +65,12 @@ function sanse_setup() {
 		'gallery',
 		'caption',
 	) );
+	
+	/*
+	 * This theme styles the visual editor to resemble the theme style,
+	 * specifically font, colors, icons, and column width.
+	 */
+	add_editor_style( array( 'assets/css/editor-style.css', sanse_fonts_url() ) );
 
 }
 add_action( 'after_setup_theme', 'sanse_setup' );
@@ -122,43 +126,149 @@ function sanse_fonts_url() {
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
  */
 function sanse_widgets_init() {
-	register_sidebar( array(
-		'name'          => esc_html__( 'Sidebar', 'sanse' ),
-		'id'            => 'sidebar-1',
-		'description'   => esc_html__( 'Add widgets here.', 'sanse' ),
+
+		register_sidebar( array(
+		'name'          => esc_html__( 'Footer widget area 1', 'sanse' ),
+		'id'            => 'footer-1',
+		'description'   => esc_html__( 'Add widgets here for footer widget area 1.', 'sanse' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</section>',
 		'before_title'  => '<h2 class="widget-title">',
 		'after_title'   => '</h2>',
 	) );
+	
+	register_sidebar( array(
+		'name'          => esc_html__( 'Footer widget area 2', 'sanse' ),
+		'id'            => 'footer-2',
+		'description'   => esc_html__( 'Add widgets here for footer widget area 2.', 'sanse' ),
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>',
+	) );
+	
+	register_sidebar( array(
+		'name'          => esc_html__( 'Footer widget area 3', 'sanse' ),
+		'id'            => 'footer-3',
+		'description'   => esc_html__( 'Add widgets here for footer widget area 3.', 'sanse' ),
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>',
+	) );
+	
 }
 add_action( 'widgets_init', 'sanse_widgets_init' );
+
+/**
+ * Handles JavaScript detection.
+ *
+ * Adds a `js` class to the root `<html>` element when JavaScript is detected.
+ *
+ */
+function sanse_javascript_detection() {
+	echo "<script>(function(html){html.className = html.className.replace(/\bno-js\b/,'js')})(document.documentElement);</script>\n";
+}
+add_action( 'wp_head', 'sanse_javascript_detection', 0 );
 
 /**
  * Enqueue scripts and styles.
  */
 function sanse_scripts() {
 	
+	// Get '.min' suffix.
+	$suffix = sanse_get_min_suffix();
+	
 	// Add custom fonts, used in the main stylesheet.
 	wp_enqueue_style( 'sanse-fonts', sanse_fonts_url(), array(), null );
 	
 	// Add parent theme styles if using child theme.
 	if ( is_child_theme() ) {
-		wp_enqueue_style( 'sanse-parent-style', trailingslashit( get_template_directory_uri() ) . 'style' . SANSE_SUFFIX . '.css', array(), null );
+		wp_enqueue_style( 'sanse-parent-style', trailingslashit( get_template_directory_uri() ) . 'style' . $suffix . '.css', array(), null );
 	}
 	
 	// Add theme styles.
 	wp_enqueue_style( 'sanse-style', get_stylesheet_uri() );
 	
 	// Add theme scripts.
-	wp_enqueue_script( 'sanse-navigation', get_template_directory_uri() . '/assets/js/navigation' . SANSE_SUFFIX . '.js', array(), '20160715', true );
+	wp_enqueue_script( 'sanse-navigation', get_template_directory_uri() . '/assets/js/navigation' . $suffix . '.js', array(), '20160715', true );
 	
 	// Add comments script.
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
+	
 }
 add_action( 'wp_enqueue_scripts', 'sanse_scripts' );
+
+/**
+ * Filters the 'stylesheet_uri' to allow theme developers to offer a minimized version of their main
+ * 'style.css' file.  It will detect if a 'style.min.css' file is available and use it if SCRIPT_DEBUG
+ * is disabled.
+ *
+ * @since     1.1.0
+ * @author    Justin Tadlock <justin@justintadlock.com>
+ * @copyright Copyright (c) 2008 - 2015, Justin Tadlock
+ * @link      http://themehybrid.com/hybrid-core
+ * @license   http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
+ * @param     string  $stylesheet_uri      The URI of the active theme's stylesheet.
+ * @param     string  $stylesheet_dir_uri  The directory URI of the active theme's stylesheet.
+ * @return    string  $stylesheet_uri
+ */
+function sanse_min_stylesheet_uri( $stylesheet_uri, $stylesheet_dir_uri ) {
+	
+	// Get the minified suffix.
+	$suffix = sanse_get_min_suffix();
+	
+	// Use the .min stylesheet if available.
+	if ( $suffix ) {
+		
+		// Remove the stylesheet directory URI from the file name.
+		$stylesheet = str_replace( trailingslashit( $stylesheet_dir_uri ), '', $stylesheet_uri );
+		
+		// Change the stylesheet name to 'style.min.css'.
+		$stylesheet = str_replace( '.css', "{$suffix}.css", $stylesheet );
+		
+		// If the stylesheet exists in the stylesheet directory, set the stylesheet URI to the dev stylesheet.
+		if ( file_exists( trailingslashit( get_stylesheet_directory() ) . $stylesheet ) ) {
+			$stylesheet_uri = esc_url( trailingslashit( $stylesheet_dir_uri ) . $stylesheet );
+		}
+		
+	}
+		
+	// Return the theme stylesheet.
+	return $stylesheet_uri;
+		
+}
+add_filter( 'stylesheet_uri', 'sanse_min_stylesheet_uri', 5, 2 );
+
+/**
+ * Helper function for getting the script/style `.min` suffix for minified files.
+ *
+ * @since  1.1.0
+ * @return string
+ */
+function sanse_get_min_suffix() {
+	return defined( 'SCRIPT_DEBUG' ) && true === SCRIPT_DEBUG ? '' : '.min';
+}
+
+/**
+ * Add SVG definitions to the footer.
+ *
+ * @since 1.1.0
+ */
+function sanse_include_svg_icons() {
+	
+	// Define SVG sprite file.
+	$svg_icons = get_template_directory() . '/assets/images/svg-icons.svg';
+	
+	// If it exists, include it.
+	if ( file_exists( $svg_icons ) ) {
+		require_once( $svg_icons );
+	}
+
+}
+add_action( 'wp_footer', 'sanse_include_svg_icons', 9999 );
 
 /**
  * Change [...] to just "Read more".
@@ -257,6 +367,25 @@ function sanse_body_classes( $classes ) {
 	if ( get_header_image() ) {
 		$classes[] = 'custom-header-image';
 	}
+	
+	// Add the '.no-header-text' class if there is no Site Title and Tagline.
+	if ( ! display_header_text() ) {
+		$classes[] = 'no-header-text';
+	}
+	
+	// Footer widget area count.
+	$footer_widget_count = 0;
+	if( is_active_sidebar( 'footer-1' ) ) {
+		$footer_widget_count++;
+	}
+	if( is_active_sidebar( 'footer-2' ) ) {
+		$footer_widget_count++;
+	}
+	if( is_active_sidebar( 'footer-3' ) ) {
+		$footer_widget_count++;
+	}
+	
+	$classes[] = 'footer-widgets-' . $footer_widget_count;
 
 	return $classes;
 }
