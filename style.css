@@ -759,6 +759,9 @@ a:active {
 .main-navigation ul {
 	display: none;
 }
+.no-js .main-navigation ul {
+	display: block;
+}
 
 .main-navigation.toggled .primary-menu-wrapper {
 	position: absolute;
