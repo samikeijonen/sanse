@@ -59,8 +59,6 @@ function sanse_header_style() {
 		
 	if ( ! empty( $header_image ) ) {
 		$style .= "@media screen and (min-width: {$min_width}px) { body.custom-header-image .hero { background-image: url({$header_image}) } }";
-		$style .= "@media screen and (min-width: {$min_width}px) { body.custom-header-image .hero { min-height: 400px; } }";
-
 	}
 	
 	/* Site title styles. */

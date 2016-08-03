@@ -4,7 +4,7 @@ Theme URI: https://foxland.fi/downloads/sanse/
 Author: Sami Keijonen
 Author URI: https://foxland.fi/
 Description: Sanse is a super fast theme where your content is shining brighter than ever.
-Version: 1.1.0
+Version: 1.1.1
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: sanse
@@ -763,10 +763,16 @@ a:active {
 	display: block;
 }
 
+
+.main-navigation.toggled {
+	margin-left: -1em;
+	margin-right: -1em;
+}
 .main-navigation.toggled .primary-menu-wrapper {
 	position: absolute;
 	background-color: #ffcd00;
 	width: 100%;
+	z-index: 1000;
 }
 
 .main-navigation li {
@@ -973,7 +979,7 @@ body.page .entry-header:after,
 .page-header:after,
 .footer-widgets-wrapper:after {
 	border-bottom: 2px solid #ffcd00;
-	content: '';
+	content: "";
 	display: block;
 	margin: 0 auto 1.5em;
 	width: 60px;
@@ -1218,16 +1224,21 @@ body.page .entry-header:after {
 	background-color: #ffcd00;
 	min-height: 350px;
 }
-.custom-header-image .hero {
-	background-position: center center;
-	background-repeat: no-repeat;
-	background-size: cover;
+
+@media screen and (min-width: 1260px) {
+	
+	.custom-header-image .hero {
+		background-position: center center;
+		background-repeat: no-repeat;
+		background-size: cover;
+		min-height: 400px;
+	}
+	
 }
 
 .site-header {
 	background-color: #ffcd00;
-	padding-top: 1em;
-	padding-bottom: 1em;
+	padding: 1em;
 	text-align: center;
 }
 
