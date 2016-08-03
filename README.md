@@ -4,11 +4,6 @@ Let your content shine with Sanse theme.
 
 ## Copyright and License
 
-The following resources are not included with the theme but are external resources linked to within the theme.
-
-* [Droid Serif](https://www.google.com/fonts/specimen/Source+Sans+Pro) by Steve Matteson - Licensed under the [Apache License, version 2.0](http://www.apache.org/licenses/LICENSE-2.0.html).
-* [Archivo Narrow](https://www.google.com/fonts/specimen/Archivo+Narrow) by Omnibus-Type - Licensed under the [SIL Open Font License, version 1.1](http://scripts.sil.org/OFL).
-
 The following resources are included within the theme package.
 
 * [Genericons](http://genericons.com/) by Automattic - Licensed under the [GPL, version 2 or later](http://www.gnu.org/licenses/old-licenses/gpl-2.0.html).
@@ -21,6 +16,10 @@ All other resources and theme elements are licensed under the [GNU GPL](http://w
 &copy; 2016 [Sami Keijonen](https://foxland.fi/).
 
 ## Changelog
+
+### Version 1.1.1 - August 3, 2016
+
+* Move custom header styles in the style.css.
 
 ### Version 1.1.0 - August 1, 2016
 
