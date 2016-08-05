@@ -11,3 +11,7 @@ body#tinymce {
 	padding-right: 3%;
 	max-width: 620px;
 }
+
+body#tinymce a {
+    border-bottom: 2px solid #ffcd00;
+}
