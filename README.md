@@ -17,7 +17,11 @@ All other resources and theme elements are licensed under the [GNU GPL](http://w
 
 ## Changelog
 
-### Version 1.1.1 - August 3, 2016
+### Version 1.2.0 - August 5, 2016
+
+* Add Front Page template.
+* Add Front Page template widget area.
+* Add support for logo.
 
 * Move custom header styles in the style.css.
 
