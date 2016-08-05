@@ -34,21 +34,20 @@ function sanse_setup() {
 	 */
 	add_theme_support( 'title-tag' );
 
-	/*
-	 * Enable support for Post Thumbnails on posts and pages.
-	 *
-	 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
-	 */
-	add_theme_support( 'post-thumbnails' );
-
-	// This theme uses wp_nav_menu() in one location.
+	// This theme uses wp_nav_menu() in two location.
 	register_nav_menus( array(
 		'primary' => esc_html__( 'Primary', 'sanse' ),
 		'social'  => esc_html__( 'Social Links', 'sanse' ),
 	) );
 	
+	// Add support for logo.
+	add_theme_support( 'custom-logo', apply_filters( 'sanse_custom_logo_arguments', array(
+		'height' => 90,
+		'width'  => 90,
+	) ) );
+	
 	/*
-	 * Add support for selective refresh..
+	 * Add support for selective refresh.
 	 *
 	 * @link https://developer.wordpress.org/themes/advanced-topics/customizer-api/#widgets-opting-in-to-selective-refresh
 	 */
@@ -120,6 +119,16 @@ function sanse_widgets_init() {
 		'description'   => esc_html__( 'Add widgets here for footer widget area 3.', 'sanse' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</section>',
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>',
+	) );
+	
+	register_sidebar( array(
+		'name'          => esc_html__( 'Front Page template widget area', 'sanse' ),
+		'id'            => 'front-page',
+		'description'   => esc_html__( 'Add widgets here for Front Page template.', 'sanse' ),
+		'before_widget' => '<section id="%1$s" class="widget %2$s"><div class="widget-inner-wrapper">',
+		'after_widget'  => '</div></section>',
 		'before_title'  => '<h2 class="widget-title">',
 		'after_title'   => '</h2>',
 	) );
