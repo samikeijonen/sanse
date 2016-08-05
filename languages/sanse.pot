@@ -76,39 +76,47 @@ msgstr ""
 msgid "Theme: %1$s by %2$s."
 msgstr ""
 
-#: functions.php:46
+#: functions.php:39
 msgid "Primary"
 msgstr ""
 
-#: functions.php:47
+#: functions.php:40
 msgid "Social Links"
 msgstr ""
 
-#: functions.php:98
+#: functions.php:97
 msgid "Footer widget area 1"
 msgstr ""
 
-#: functions.php:100
+#: functions.php:99
 msgid "Add widgets here for footer widget area 1."
 msgstr ""
 
-#: functions.php:108
+#: functions.php:107
 msgid "Footer widget area 2"
 msgstr ""
 
-#: functions.php:110
+#: functions.php:109
 msgid "Add widgets here for footer widget area 2."
 msgstr ""
 
-#: functions.php:118
+#: functions.php:117
 msgid "Footer widget area 3"
 msgstr ""
 
-#: functions.php:120
+#: functions.php:119
 msgid "Add widgets here for footer widget area 3."
 msgstr ""
 
-#: functions.php:246
+#: functions.php:127
+msgid "Front Page template widget area"
+msgstr ""
+
+#: functions.php:129
+msgid "Add widgets here for Front Page template."
+msgstr ""
+
+#: functions.php:255
 msgid "Read more %s"
 msgstr ""
 
@@ -199,10 +207,10 @@ msgstr ""
 msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
 msgstr ""
 
-#: template-parts/content-page.php:22, template-parts/content.php:28
+#: template-parts/content-page.php:23, template-parts/content.php:28
 msgid "Pages:"
 msgstr ""
 
-#: template-parts/content-page.php:34
-msgid "Edit %s"
+#: templates/front-page.php:46
+msgid "Blog"
 msgstr ""
