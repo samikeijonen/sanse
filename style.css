@@ -4,7 +4,7 @@ Theme URI: https://foxland.fi/downloads/sanse/
 Author: Sami Keijonen
 Author URI: https://foxland.fi/
 Description: Sanse is a super fast theme where your content is shining brighter than ever.
-Version: 1.1.1
+Version: 1.2.0
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: sanse
@@ -330,11 +330,13 @@ h3,
 	font-size: 1.424em;
 }
 h4,
-.entry-inner .entry-title {
-	font-size: 1.266em;
+.entry-inner .entry-title,
+.front-page-content .entry-content {
+	font-size: 1.265625em;
 }
 h5,
-.footer-widgets-wrapper .widget-title {
+.footer-widgets-wrapper .widget-title,
+.front-page-blog .entry-inner .entry-title {
 	font-size: 1.125em;
 }
 h6 {
@@ -369,8 +371,9 @@ h6 {
 		font-size: 1.424em;
 	}
 	h5,
-	.footer-widgets-wrapper .widget-title {
-		font-size: 1.266em;
+	.footer-widgets-wrapper .widget-title,
+	.front-page-blog .entry-inner .entry-title  {
+		font-size: 1.265625em;
 	}
 	h6 {
 		font-size: 1.125em;
@@ -616,6 +619,10 @@ a.button:focus {
 	outline-offset: -2px;
 }
 
+a.button {
+	display: block;
+}
+
 /* Menu toggle. */
 .menu-toggle {
 	border: 2px solid #000;
@@ -711,7 +718,8 @@ a:visited {
 }
 .entry-content .gallery-icon a,
 .footer-widgets-wrapper a,
-.entry-content .mejs-horizontal-volume-slider {
+.entry-content .mejs-horizontal-volume-slider,
+a.button {
 	border-bottom: none;
 }
 
@@ -984,7 +992,8 @@ body.page .entry-header:after,
 	margin: 0 auto 1.5em;
 	width: 60px;
 }
-.post-navigation .nav-previous ~ .nav-next:before {
+.post-navigation .nav-previous ~ .nav-next:before,
+.front-page-blog .page-header:after {
 	border-bottom-color: #ccc;
 	margin-top: 1.5em;
 }
@@ -997,6 +1006,10 @@ body.page .entry-header:after {
 	margin-top: 1.5em;
 	margin-bottom: 3em;
 }
+body.page .front-page-blog .entry-header:after {
+	display: none;
+}
+
 .pagination .page-numbers {
 	padding: 0.30794614765em;
 }
@@ -1154,16 +1167,28 @@ body.page .entry-header:after {
 }
 
 .footer-widgets-wrapper ul,
-.footer-widgets-wrapper ol {
+.footer-widgets-wrapper ol,
+.front-page-widgets-wrapper ul,
+.front-page-widgets-wrapper ol {
 	list-style-type: none;
 	margin-left: 0;
 }
-.footer-widgets-wrapper li {
+.footer-widgets-wrapper li,
+.front-page-widgets-wrapper li {
 	padding-bottom: 0.19224926395em;
 }
-
 .footer-widgets-wrapper .widget-title {
 	color: #ffcd00;
+}
+
+.front-page-widgets-wrapper {
+	padding-bottom: 1.5em;
+}
+.front-page-widget-area  > .widget:first-of-type {
+	background-color: #f0f0f0;
+	padding: 1.5em;
+	margin-bottom: 3em;
+	text-align: center;
 }
 
 /* Make sure select elements fit in widgets. */
@@ -1186,7 +1211,8 @@ body.page .entry-header:after {
 .entry-meta,
 .comments-area,
 .comment-respond,
-.site-info {
+.site-info,
+.widget-inner-wrapper {
 	margin-left: auto;
 	margin-right: auto;
 	max-width: 1220px;
@@ -1209,7 +1235,8 @@ body.page .entry-header:after {
 .comment-respond,
 .entry-inner .entry-header,
 .entry-inner .entry-meta,
-.footer-widgets-1 .footer-widgets-wrapper .wrapper {
+.footer-widgets-1 .footer-widgets-wrapper .wrapper,
+.widget-inner-wrapper {
 	max-width: 620px;
 }
 
@@ -1514,6 +1541,10 @@ embed,
 iframe,
 object {
 	max-width: 100%;
+}
+
+.custom-logo {
+	margin-bottom: 0.38974434312em;
 }
 
 /*--------------------------------------------------------------
