@@ -4,7 +4,7 @@ Theme URI: https://foxland.fi/downloads/sanse/
 Author: Sami Keijonen
 Author URI: https://foxland.fi/
 Description: Sanse is a super fast theme where your content is shining brighter than ever.
-Version: 1.2.0
+Version: 1.2.1
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: sanse
@@ -558,6 +558,14 @@ td {
 	padding: 0.44444444em;
 }
 
+.site-content ::-moz-selection {
+	background-color: #ffcd00;
+}
+
+.site-content ::selection {
+	background-color: #ffcd00;
+}
+
 
 /*--------------------------------------------------------------
 4 Forms
@@ -1010,7 +1018,8 @@ body.page .front-page-blog .entry-header:after {
 	display: none;
 }
 
-.pagination .page-numbers {
+.pagination .page-numbers,
+.page-links > a {
 	padding: 0.30794614765em;
 }
 .pagination .page-numbers.dots {
@@ -1322,10 +1331,10 @@ body.page .front-page-blog .entry-header:after {
 		padding-left: 1.5em;
 	}
 	
-	.footer-widgets-2 .widget-area {
+	.footer-widgets-2 .footer-widgets-wrapper .widget-area {
 		width: 50%;
 	}
-	.footer-widgets-3 .widget-area {
+	.footer-widgets-3 .footer-widgets-wrapper .widget-area {
 		width: 33.3333333333%;
 	}
 	
@@ -1377,6 +1386,40 @@ body.page .front-page-blog .entry-header:after {
 }
 .entry-inner .entry-summary {
 	margin-bottom: 0;
+}
+
+.entry-footer {
+	padding-bottom: 1.5em;
+}
+.entry-terms-wrapper{
+	font-size: 0.888888888em;
+	font-weight: 600;
+}
+.entry-tags-wrapper {
+	clear: both;
+}
+.entry-terms > a {
+	background-color: #f0f0f0;
+	border-radius: 2px;
+	color: #404040;
+	display: block;
+	float: left;
+	line-height: 1.75em;
+	height: 1.75em;
+	padding: 0 0.38974434312em;
+	margin-right: 0.38974434312em;
+	margin-bottom: 0.38974434312em;
+	text-transform: capitalize;
+	transition: all 0.25s ease-in-out;
+}
+.entry-terms > a:hover,
+.entry-terms > a:focus,
+.entry-terms > a:active {
+	background-color: #000;
+	color: #fff;
+}
+.entry-terms > a:focus {
+	outline-offset: -2px;
 }
 
 .page-links {
@@ -1560,6 +1603,24 @@ object {
 	position: relative; /* Align more nicely with capital letters */
 	top: -0.0625em;
 }
+
+.icon-wrapper {
+	background-color: #f0f0f0;
+	border-radius: 2px;
+	display: block;
+	float: left;
+	margin-right: 0.38974434312em;
+	width: 1.75em;
+	height: 1.75em;
+}
+.icon-wrapper  > .icon {
+	left: 0.5em;
+	top: 0.5em;
+	width: 0.75em;
+	height: 0.75em;
+	vertical-align: top;
+}
+
 
 /*--------------------------------------------------------------
 12.2 Captions

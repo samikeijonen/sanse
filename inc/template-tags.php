@@ -66,7 +66,7 @@ function sanse_get_post_terms( $args = array() ) {
 		'after'      => '',
 		'items_wrap' => '<span %s>%s</span>',
 		/* Translators: Separates tags, categories, etc. when displaying a post. */
-		'sep'        => esc_html_x( ', ', 'taxonomy terms separator', 'sanse' )
+		'sep'        => '<span class="screen-reader-text">' . esc_html_x( ', ', 'taxonomy terms separator', 'sanse' ) . '</span>'
 	);
 
 	$args = wp_parse_args( $args, $defaults );
