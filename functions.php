@@ -253,7 +253,7 @@ function sanse_excerpt_more() {
 
 	/* Translators: The %s is the post title shown to screen readers. */
 	$text = sprintf( esc_attr__( 'Read more %s', 'sanse' ), '<span class="screen-reader-text">' . get_the_title() ) .  '</span>';
-	$more = sprintf( '&hellip; <span class="icon-wrapper icon-wrapper-round"></span><a href="%s" class="more-link">%s %s</a>', esc_url( get_permalink() ), $text, sanse_get_svg( array( 'icon' => 'next' ) ) );
+	$more = sprintf( '&hellip; <a href="%s" class="more-link">%s %s</a>', esc_url( get_permalink() ), $text, sanse_get_svg( array( 'icon' => 'next' ) ) );
 
 	return $more;
 
