@@ -42,8 +42,10 @@ function sanse_setup() {
 	
 	// Add support for logo.
 	add_theme_support( 'custom-logo', apply_filters( 'sanse_custom_logo_arguments', array(
-		'height' => 90,
-		'width'  => 90,
+		'height'      => 90,
+		'width'       => 90,
+		'flex-height' => true,
+		'flex-width'  => true,
 	) ) );
 	
 	/*
@@ -176,7 +178,7 @@ add_action( 'wp_enqueue_scripts', 'sanse_scripts' );
 
 /**
  * Filters the 'stylesheet_uri' to allow theme developers to offer a minimized version of their main
- * 'style.css' file.  It will detect if a 'style.min.css' file is available and use it if SCRIPT_DEBUG
+ * 'style.css' file. It will detect if a 'style.min.css' file is available and use it if SCRIPT_DEBUG
  * is disabled.
  *
  * @since     1.1.0
