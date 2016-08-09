@@ -17,10 +17,11 @@ All other resources and theme elements are licensed under the [GNU GPL](http://w
 
 ## Changelog
 
-### Version 1.2.1 - August 5, 2016
+### Version 1.2.1 - August 9, 2016
 
 * Fix Front Page widget are layout issue.
 * Add tags and categories after post.
+* Add flexible width and height for logo.
 
 ### Version 1.2.0 - August 5, 2016
 
