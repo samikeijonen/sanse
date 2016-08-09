@@ -84,39 +84,39 @@ msgstr ""
 msgid "Social Links"
 msgstr ""
 
-#: functions.php:97
+#: functions.php:99
 msgid "Footer widget area 1"
 msgstr ""
 
-#: functions.php:99
+#: functions.php:101
 msgid "Add widgets here for footer widget area 1."
 msgstr ""
 
-#: functions.php:107
+#: functions.php:109
 msgid "Footer widget area 2"
 msgstr ""
 
-#: functions.php:109
+#: functions.php:111
 msgid "Add widgets here for footer widget area 2."
 msgstr ""
 
-#: functions.php:117
+#: functions.php:119
 msgid "Footer widget area 3"
 msgstr ""
 
-#: functions.php:119
+#: functions.php:121
 msgid "Add widgets here for footer widget area 3."
 msgstr ""
 
-#: functions.php:127
+#: functions.php:129
 msgid "Front Page template widget area"
 msgstr ""
 
-#: functions.php:129
+#: functions.php:131
 msgid "Add widgets here for Front Page template."
 msgstr ""
 
-#: functions.php:255
+#: functions.php:257
 msgid "Read more %s"
 msgstr ""
 
