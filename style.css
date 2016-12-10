@@ -4,7 +4,7 @@ Theme URI: https://foxland.fi/downloads/sanse/
 Author: Sami Keijonen
 Author URI: https://foxland.fi/
 Description: Sanse is a super fast theme where your content is shining brighter than ever.
-Version: 1.2.1
+Version: 1.2.2
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: sanse
@@ -344,7 +344,7 @@ h6 {
 }
 
 @media screen and (min-width: 58.875em) {
-	
+
 	body,
 	button,
 	input,
@@ -352,7 +352,7 @@ h6 {
 	textarea {
 		font-size: 1.125em;
 	}
-	
+
 	h1 {
 		font-size: 1.802em;
 	}
@@ -361,7 +361,7 @@ h6 {
 	}
 	h3,
 	.comments-title,
-	.comment-reply-title
+	.comment-reply-title,
 	.widget-title,
 	.widgettitle {
 		font-size: 1.5em;
@@ -378,7 +378,7 @@ h6 {
 	h6 {
 		font-size: 1.125em;
 	}
-	
+
 }
 
 p,
@@ -593,7 +593,7 @@ input[type="submit"],
 a.button,
 label {
 	font-weight: 700;
-	letter-spacing: 1px;	
+	letter-spacing: 1px;
 }
 
 .comment-form input[type="submit"] {
@@ -841,7 +841,7 @@ a:active {
 }
 
 @media screen and (min-width: 62.875em) {
-	
+
 	.menu-toggle {
 		display: none;
 	}
@@ -859,7 +859,7 @@ a:active {
 	.no-header-text .main-navigation {
 		padding-top: 0;
 	}
-	
+
 	.main-navigation li {
 		padding-left: 0;
 		padding-right: 0;
@@ -869,7 +869,7 @@ a:active {
 	.main-navigation .primary-menu > li {
 		border: 0;
 	}
-	
+
 	.main-navigation a,
 	.main-navigation .primary-menu > li {
 		display: inline-block;
@@ -937,7 +937,7 @@ a:active {
 	.main-navigation ul ul .menu-item-has-children > a {
 		padding-right: 2.0625em;
 	}
-	
+
 }
 
 /* Social Links. */
@@ -1049,11 +1049,11 @@ body.page .front-page-blog .entry-header:after {
 }
 
 @media screen and (min-width: 62.875em) {
-	
+
 	.post-navigation {
 		text-align: left;
 	}
-	
+
 	.comment-navigation .nav-previous,
 	.post-navigation .nav-previous {
 		float: left;
@@ -1066,7 +1066,7 @@ body.page .front-page-blog .entry-header:after {
 		text-align: right;
 		width: 50%;
 	}
-	
+
 	.post-navigation .nav-previous ~ .nav-next:before {
 		display: none;
 	}
@@ -1262,14 +1262,14 @@ body.page .front-page-blog .entry-header:after {
 }
 
 @media screen and (min-width: 1260px) {
-	
+
 	.custom-header-image .hero {
 		background-position: center center;
 		background-repeat: no-repeat;
 		background-size: cover;
 		min-height: 400px;
 	}
-	
+
 }
 
 .site-header {
@@ -1317,27 +1317,27 @@ body.page .front-page-blog .entry-header:after {
 }
 
 @media screen and (min-width: 56em) {
-	
+
 	.grid-wrapper {
 		margin-left: -1.5em;
 	}
-	
+
 	.grid-wrapper > .hentry {
 		padding-left: 1.5em;
 		width: 50%;
 	}
-	
+
 	.footer-widgets-wrapper .widget-area {
 		padding-left: 1.5em;
 	}
-	
+
 	.footer-widgets-2 .footer-widgets-wrapper .widget-area {
 		width: 50%;
 	}
 	.footer-widgets-3 .footer-widgets-wrapper .widget-area {
 		width: 33.3333333333%;
 	}
-	
+
 }
 
 
