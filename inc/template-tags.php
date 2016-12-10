@@ -38,12 +38,12 @@ function sanse_posted_on() {
 }
 
 /**
- * This template tag is meant to replace template tags like `the_category()`, `the_terms()`, etc.  These core 
- * WordPress template tags don't offer proper translation and RTL support without having to write a lot of 
- * messy code within the theme's templates.  This is why theme developers often have to resort to custom 
- * functions to handle this (even the default WordPress themes do this). Particularly, the core functions 
- * don't allow for theme developers to add the terms as placeholders in the accompanying text (ex: "Posted in %s"). 
- * This funcion is a wrapper for the WordPress `get_the_terms_list()` function.  It uses that to build a 
+ * This template tag is meant to replace template tags like `the_category()`, `the_terms()`, etc.  These core
+ * WordPress template tags don't offer proper translation and RTL support without having to write a lot of
+ * messy code within the theme's templates.  This is why theme developers often have to resort to custom
+ * functions to handle this (even the default WordPress themes do this). Particularly, the core functions
+ * don't allow for theme developers to add the terms as placeholders in the accompanying text (ex: "Posted in %s").
+ * This funcion is a wrapper for the WordPress `get_the_terms_list()` function.  It uses that to build a
  * better post terms list.
  *
  * @author  Justin Tadlock
@@ -101,11 +101,11 @@ function sanse_post_terms( $args = array() ) {
  *
  */
 function sanse_the_custom_logo() {
-	
+
 	if ( function_exists( 'the_custom_logo' ) ) {
 		the_custom_logo();
 	}
-	
+
 }
 
 /**
@@ -126,12 +126,12 @@ function sanse_get_svg( $args = array() ) {
 	if ( empty( $args ) ) {
 		return esc_html__( 'Please define default parameters in the form of an array.', 'sanse' );
 	}
-	
+
 	// Define an icon.
 	if ( false === array_key_exists( 'icon', $args ) ) {
 		return esc_html__( 'Please define an SVG icon filename.', 'sanse' );
 	}
-	
+
 	// Set defaults.
 	$defaults = array(
 		'icon'        => '',
@@ -139,26 +139,26 @@ function sanse_get_svg( $args = array() ) {
 		'desc'        => '',
 		'aria_hidden' => true, // Hide from screen readers.
 	);
-	
+
 	// Parse args.
 	$args = wp_parse_args( $args, $defaults );
-	
+
 	// Set aria hidden.
 	if ( true === $args['aria_hidden'] ) {
 		$aria_hidden = ' aria-hidden="true"';
 	} else {
 		$aria_hidden = '';
 	}
-	
+
 	// Set ARIA.
 	if ( $args['title'] && $args['desc'] ) {
 		$aria_labelledby = ' aria-labelledby="title desc"';
 	} else {
 		$aria_labelledby = '';
 	}
-	
+
 	// Begin SVG markup
-	$svg = '<svg class="icon icon-' . esc_html( $args['icon'] ) . '"' . $aria_hidden . $aria_labelledby . ' role="img">';
+	$svg = '<svg class="icon icon-' . esc_attr( $args['icon'] ) . '"' . $aria_hidden . $aria_labelledby . ' role="img">';
 		// If there is a title, display it.
 		if ( $args['title'] ) {
 			$svg .= '<title>' . esc_html( $args['title'] ) . '</title>';
@@ -167,7 +167,7 @@ function sanse_get_svg( $args = array() ) {
 		if ( $args['desc'] ) {
 			$svg .= '<desc>' . esc_html( $args['desc'] ) . '</desc>';
 		}
-	$svg .= '<use xlink:href="#icon-' . esc_html( $args['icon'] ) . '"></use>';
+	$svg .= '<use xlink:href="#icon-' . esc_attr( $args['icon'] ) . '"></use>';
 	$svg .= '</svg>';
 	return $svg;
 }
@@ -187,13 +187,13 @@ function sanse_do_svg( $args = array() ) {
  * Use WordPress native the_posts_pagination function.
  */
 function sanse_posts_pagination() {
-	
+
 	the_posts_pagination( array(
 		'prev_text'          => '<span class="screen-reader-text">' . esc_html__( 'Previous page', 'sanse' ) . '</span>' . sanse_get_svg( array( 'icon' => 'arrow-circle-left' ) ),
 		'next_text'          => '<span class="screen-reader-text">' . esc_html__( 'Next page', 'sanse' ). '</span>' . sanse_get_svg( array( 'icon' => 'arrow-circle-right' ) ),
 		'before_page_number' => '<span class="meta-nav screen-reader-text">' . esc_html__( 'Page', 'sanse' ) . ' </span>',
 	) );
-	
+
 }
 
 /**
