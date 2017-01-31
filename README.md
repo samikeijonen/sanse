@@ -13,11 +13,17 @@ Note that icons (only some of the icons) are turned into SVG images using tool c
 
 All other resources and theme elements are licensed under the [GNU GPL](http://www.gnu.org/licenses/old-licenses/gpl-2.0.html), version 2 or later.
 
-&copy; 2016 [Sami Keijonen](https://foxland.fi/).
+&copy; 2016-2017 [Sami Keijonen](https://foxland.fi/).
 
 ## Changelog
 
-### Version 1.2.2 - December 100, 2016
+### Version 1.2.3 - January 31, 2017
+
+* Trap keyboard focus inside opened mobile menu while tabbing trough the menu items.
+* Update skip to content javascript.
+* Remove aria-haspopup="true" from submenus.
+
+### Version 1.2.2 - December 10, 2016
 
 * Fix escaping function in read more text, icon output, and header color.
 * Remove rtl.css and readme.txt files. They are not used at the moment.
