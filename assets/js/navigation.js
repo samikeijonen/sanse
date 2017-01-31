@@ -5,7 +5,7 @@
  * navigation support for dropdown menus.
  */
 ( function() {
-	var container, button, menu, links, subMenus, i, len;
+	var container, button, menu, links, i, len, focusableElements, firstFocusableElement, lastFocusableElement;
 
 	container = document.getElementById( 'site-navigation' );
 	if ( ! container ) {
@@ -39,17 +39,32 @@
 			container.className += ' toggled';
 			button.setAttribute( 'aria-expanded', 'true' );
 			menu.setAttribute( 'aria-expanded', 'true' );
+			
+			// Set focusable elements inside main navigation.
+			focusableElements     = container.querySelectorAll( ['a[href]', 'area[href]', 'input:not([disabled])', 'select:not([disabled])', 'textarea:not([disabled])', 'button:not([disabled])', 'iframe', 'object', 'embed', '[contenteditable]', '[tabindex]:not([tabindex^="-"])'] );
+			firstFocusableElement = focusableElements[0];
+			lastFocusableElement  = focusableElements[focusableElements.length - 1];
+		
+			// Redirect last Tab to first focusable element.
+			lastFocusableElement.addEventListener( 'keydown', function ( e ) {
+				if ( ( e.keyCode === 9 && ! e.shiftKey ) ) {
+					e.preventDefault();
+					firstFocusableElement.focus(); // Set focus on first element - that's actually close menu button.	
+				}
+			});
+
+			// Redirect first Shift+Tab to last focusable element.
+			firstFocusableElement.addEventListener( 'keydown', function ( e ) {
+				if ( ( e.keyCode === 9 && e.shiftKey ) ) {
+					e.preventDefault();
+					lastFocusableElement.focus(); // Set focus on last element.
+				}
+			});
 		}
 	};
 
 	// Get all the link elements within the menu.
 	links    = menu.getElementsByTagName( 'a' );
-	subMenus = menu.getElementsByTagName( 'ul' );
-
-	// Set menu items with submenus to aria-haspopup="true".
-	for ( i = 0, len = subMenus.length; i < len; i++ ) {
-		subMenus[i].parentNode.setAttribute( 'aria-haspopup', 'true' );
-	}
 
 	// Each time a menu link is focused or blurred, toggle focus.
 	for ( i = 0, len = links.length; i < len; i++ ) {
@@ -118,12 +133,10 @@
  *
  * Learn more: https://git.io/vWdr2
  */
-( function() {
-	var isWebkit = navigator.userAgent.toLowerCase().indexOf( 'webkit' ) > -1,
-	    isOpera  = navigator.userAgent.toLowerCase().indexOf( 'opera' )  > -1,
-	    isIe     = navigator.userAgent.toLowerCase().indexOf( 'msie' )   > -1;
+(function() {
+	var isIe = /(trident|msie)/i.test( navigator.userAgent );
 
-	if ( ( isWebkit || isOpera || isIe ) && document.getElementById && window.addEventListener ) {
+	if ( isIe && document.getElementById && window.addEventListener ) {
 		window.addEventListener( 'hashchange', function() {
 			var id = location.hash.substring( 1 ),
 				element;
