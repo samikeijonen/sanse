@@ -166,7 +166,7 @@ function sanse_scripts() {
 	wp_enqueue_style( 'sanse-style', get_stylesheet_uri() );
 
 	// Add theme scripts.
-	wp_enqueue_script( 'sanse-navigation', get_template_directory_uri() . '/assets/js/navigation' . $suffix . '.js', array(), '20160715', true );
+	wp_enqueue_script( 'sanse-navigation', get_template_directory_uri() . '/assets/js/navigation' . $suffix . '.js', array(), '20170131', true );
 
 	// Add comments script.
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
